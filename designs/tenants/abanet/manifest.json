@@ -1,0 +1,15 @@
+{
+  "tenant_code": "abanet",
+  "active_version_id": "v20260416-001",
+  "active_theme_path": "designs/tenants/abanet/active-theme.json",
+  "updated_at": "2026-04-16T10:15:00.000Z",
+  "versions": [
+    {
+      "version_id": "v20260416-001",
+      "design_name": "Abanet Bright Green",
+      "commit_sha": "bootstrap-seed",
+      "applied_at": "2026-04-16T10:15:00.000Z",
+      "path": "designs/tenants/abanet/versions/v20260416-001.json"
+    }
+  ]
+}
