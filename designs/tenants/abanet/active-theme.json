@@ -1,58 +1,160 @@
 {
-  "schema_version": "2026-04-15",
+  "schema_version": "2026-04-16",
+  "generated_at": "2026-04-16T01:36:39.645Z",
   "tenant_code": "abanet",
-  "design_name": "Abanet Sunset Orange",
-  "version_id": "v20260416-002",
-  "applied_at": "2026-04-15T19:57:50.000Z",
-  "applied_by": {
-    "user_id": "admin-redacted",
-    "role": "company_admin",
-    "is_impersonating": false,
-    "impersonator_id": null
-  },
+  "design_name": "NetOne Warm Support ABANET snapshot",
   "branding": {
-    "company_name": "Abanet",
     "logo_url": null,
     "font_family": "Space Grotesk"
   },
   "tokens": {
     "colors": {
-      "primary": "#B45309",
-      "secondary": "#FFFFFF",
-      "accent": "#FFF7ED",
-      "text": "#1F2937",
-      "background": "#FFFBF5",
-      "surface": "#FFFFFF",
-      "border": "#FCD9BD",
-      "textMuted": "#7C5E45",
-      "success": "#15803D",
-      "warning": "#B45309",
-      "error": "#B91C1C"
-    },
-    "radius": {
-      "sm": 12,
-      "md": 16,
-      "lg": 24,
-      "xl": 32
-    },
-    "spacing": {
-      "page_x": 16,
-      "section_y": 24
+      "primary": "#2563EB",
+      "accent": "#EFF6FF"
     }
   },
   "layout": {
-    "sidebar": "default",
-    "topbar": "default",
-    "density": "comfortable"
+    "mode": "sidebar",
+    "density": "comfortable",
+    "custom_layout": {
+      "type": "page",
+      "props": {
+        "density": "comfortable"
+      },
+      "children": [
+        {
+          "type": "topbar",
+          "props": {
+            "variant": "minimal"
+          },
+          "children": [
+            {
+              "type": "brand"
+            },
+            {
+              "type": "nav",
+              "props": {
+                "items": [
+                  "overview",
+                  "invoices",
+                  "usage",
+                  "settings"
+                ]
+              }
+            },
+            {
+              "type": "user-menu"
+            }
+          ]
+        },
+        {
+          "type": "main",
+          "children": [
+            {
+              "type": "section",
+              "props": {
+                "id": "summary",
+                "title": "Billing Summary"
+              },
+              "children": [
+                {
+                  "type": "stat-card",
+                  "props": {
+                    "label": "Outstanding",
+                    "format": "currency"
+                  }
+                },
+                {
+                  "type": "stat-card",
+                  "props": {
+                    "label": "Next Invoice",
+                    "format": "date"
+                  }
+                },
+                {
+                  "type": "stat-card",
+                  "props": {
+                    "label": "Plan",
+                    "format": "text"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "props": {
+                "id": "invoices",
+                "title": "Recent Invoices"
+              },
+              "children": [
+                {
+                  "type": "table",
+                  "props": {
+                    "columns": [
+                      "invoice_no",
+                      "period",
+                      "amount",
+                      "status",
+                      "action"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "props": {
+                "id": "usage",
+                "title": "Usage Breakdown"
+              },
+              "children": [
+                {
+                  "type": "chart",
+                  "props": {
+                    "kind": "bar",
+                    "metric": "monthly_usage"
+                  }
+                },
+                {
+                  "type": "legend"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "props": {
+                "id": "payment",
+                "title": "Payment Methods"
+              },
+              "children": [
+                {
+                  "type": "card-list",
+                  "props": {
+                    "entity": "payment_method"
+                  }
+                },
+                {
+                  "type": "action-button",
+                  "props": {
+                    "action": "add_method"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "footer",
+          "props": {
+            "variant": "compact"
+          }
+        }
+      ]
+    }
   },
   "source": {
     "type": "manual",
     "reference_url": null,
     "cloned_from": null
-  },
-  "commit": {
-    "repo": "PeeraID/billing-themes",
-    "branch": "main",
-    "sha": "manual-direct-apply"
   }
 }
