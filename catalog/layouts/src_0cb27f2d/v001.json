@@ -1,0 +1,71 @@
+{
+  "layout_key": "src_0cb27f2d",
+  "version": "v001",
+  "name": "Billing Focus Split",
+  "description": "Billing-first dashboard layout dengan summary stats, invoices table, usage chart, dan payment methods.",
+  "tags": ["dashboard", "billing", "split", "comfortable"],
+  "renderer_version": "1.0",
+  "generated_at": "2026-04-16T00:00:00Z",
+  "source": {
+    "mode": "random",
+    "url": "https://tailwindui.com/components/application-ui/page-examples/home-screens",
+    "canonical_url": "https://tailwindui.com/components/application-ui/page-examples/home-screens",
+    "domain": "tailwindui.com"
+  },
+  "hash": {
+    "layout_tree_hash": "sha256:fff6cfe6812075a877e45f69ca3cffbc4fb53fa7b11390f98c00d3038d64e3e8"
+  },
+  "layout": {
+    "type": "page",
+    "props": { "density": "comfortable" },
+    "children": [
+      {
+        "type": "topbar",
+        "props": { "variant": "minimal" },
+        "children": [
+          { "type": "brand" },
+          { "type": "nav", "props": { "items": ["overview", "invoices", "usage", "settings"] } },
+          { "type": "user-menu" }
+        ]
+      },
+      {
+        "type": "main",
+        "children": [
+          {
+            "type": "section",
+            "props": { "id": "summary", "title": "Billing Summary" },
+            "children": [
+              { "type": "stat-card", "props": { "label": "Outstanding", "format": "currency" } },
+              { "type": "stat-card", "props": { "label": "Next Invoice", "format": "date" } },
+              { "type": "stat-card", "props": { "label": "Plan", "format": "text" } }
+            ]
+          },
+          {
+            "type": "section",
+            "props": { "id": "invoices", "title": "Recent Invoices" },
+            "children": [
+              { "type": "table", "props": { "columns": ["invoice_no", "period", "amount", "status", "action"] } }
+            ]
+          },
+          {
+            "type": "section",
+            "props": { "id": "usage", "title": "Usage Breakdown" },
+            "children": [
+              { "type": "chart", "props": { "kind": "bar", "metric": "monthly_usage" } },
+              { "type": "legend" }
+            ]
+          },
+          {
+            "type": "section",
+            "props": { "id": "payment", "title": "Payment Methods" },
+            "children": [
+              { "type": "card-list", "props": { "entity": "payment_method" } },
+              { "type": "action-button", "props": { "action": "add_method" } }
+            ]
+          }
+        ]
+      },
+      { "type": "footer", "props": { "variant": "compact" } }
+    ]
+  }
+}
