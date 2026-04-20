@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-04-16",
-  "generated_at": "2026-04-16T01:36:39.645Z",
+  "generated_at": "2026-04-20T02:00:00Z",
   "tenant_code": "abanet",
   "design_name": "NetOne Warm Support ABANET snapshot",
   "branding": {
@@ -16,145 +16,16 @@
   "layout": {
     "mode": "sidebar",
     "density": "comfortable",
-    "custom_layout": {
-      "type": "page",
-      "props": {
-        "density": "comfortable"
-      },
-      "children": [
-        {
-          "type": "topbar",
-          "props": {
-            "variant": "minimal"
-          },
-          "children": [
-            {
-              "type": "brand"
-            },
-            {
-              "type": "nav",
-              "props": {
-                "items": [
-                  "overview",
-                  "invoices",
-                  "usage",
-                  "settings"
-                ]
-              }
-            },
-            {
-              "type": "user-menu"
-            }
-          ]
-        },
-        {
-          "type": "main",
-          "children": [
-            {
-              "type": "section",
-              "props": {
-                "id": "summary",
-                "title": "Billing Summary"
-              },
-              "children": [
-                {
-                  "type": "stat-card",
-                  "props": {
-                    "label": "Outstanding",
-                    "format": "currency"
-                  }
-                },
-                {
-                  "type": "stat-card",
-                  "props": {
-                    "label": "Next Invoice",
-                    "format": "date"
-                  }
-                },
-                {
-                  "type": "stat-card",
-                  "props": {
-                    "label": "Plan",
-                    "format": "text"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "section",
-              "props": {
-                "id": "invoices",
-                "title": "Recent Invoices"
-              },
-              "children": [
-                {
-                  "type": "table",
-                  "props": {
-                    "columns": [
-                      "invoice_no",
-                      "period",
-                      "amount",
-                      "status",
-                      "action"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "section",
-              "props": {
-                "id": "usage",
-                "title": "Usage Breakdown"
-              },
-              "children": [
-                {
-                  "type": "chart",
-                  "props": {
-                    "kind": "bar",
-                    "metric": "monthly_usage"
-                  }
-                },
-                {
-                  "type": "legend"
-                }
-              ]
-            },
-            {
-              "type": "section",
-              "props": {
-                "id": "payment",
-                "title": "Payment Methods"
-              },
-              "children": [
-                {
-                  "type": "card-list",
-                  "props": {
-                    "entity": "payment_method"
-                  }
-                },
-                {
-                  "type": "action-button",
-                  "props": {
-                    "action": "add_method"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "footer",
-          "props": {
-            "variant": "compact"
-          }
-        }
-      ]
+    "layout_ref": {
+      "layout_key": "src_a39f36a6",
+      "version": "v001",
+      "name": "Minimal Billing Dashboard"
     }
   },
   "source": {
     "type": "manual",
     "reference_url": null,
-    "cloned_from": null
+    "cloned_from": null,
+    "layout_strategy": "approved"
   }
 }
