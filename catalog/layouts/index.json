@@ -8,6 +8,14 @@
       "tags": ["dashboard", "billing", "split", "comfortable"],
       "source_domain": "tailwindui.com",
       "updated_at": "2026-04-16T00:00:00Z"
+    },
+    {
+      "layout_key": "src_a39f36a6",
+      "name": "Minimal Billing Dashboard",
+      "latest_version": "v001",
+      "tags": ["dashboard", "billing", "minimal"],
+      "source_domain": "peera.id",
+      "updated_at": "2026-04-20T00:00:00Z"
     }
   ]
 }
