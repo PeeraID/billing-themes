@@ -10,33 +10,23 @@
     "mode": "manual",
     "domain": "peera.id"
   },
-  "layout": {
-    "type": "page",
-    "props": { "density": "comfortable" },
-    "children": [
+  "layout_tree": {
+    "screens": [
       {
-        "type": "topbar",
-        "props": { "variant": "minimal" },
-        "children": [
-          { "type": "brand" },
-          { "type": "nav", "props": { "items": ["overview", "invoices"] } },
-          { "type": "user-menu" }
-        ]
-      },
-      {
-        "type": "main",
-        "children": [
-          {
-            "type": "section",
-            "props": { "id": "summary", "title": "Account Overview" },
-            "children": [
-              { "type": "stat-card", "props": { "label": "Balance", "format": "currency" } },
-              { "type": "stat-card", "props": { "label": "Status", "format": "text" } }
-            ]
-          }
-        ]
-      },
-      { "type": "footer", "props": { "variant": "compact" } }
+        "screen_id": "portal.home",
+        "composition": {
+          "type": "screen",
+          "zones": [
+            {
+              "id": "content",
+              "items": [
+                { "item_ref": "portal.home.summary" },
+                { "item_ref": "portal.home.invoices" }
+              ]
+            }
+          ]
+        }
+      }
     ]
   }
 }

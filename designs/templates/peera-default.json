@@ -1,0 +1,13 @@
+{
+  "template_name": "peera-default",
+  "tokens": {
+    "colors": {
+      "brand-500": "#465fff",
+      "stone-950": "#0c0c0c",
+      "stone-900": "#171717"
+    },
+    "shadows": {
+      "card": "0px 12px 16px -4px rgba(16, 24, 40, 0.08)"
+    }
+  }
+}

@@ -1,31 +1,10 @@
 {
-  "schema_version": "2026-04-16",
-  "generated_at": "2026-04-20T02:00:00Z",
   "tenant_code": "abanet",
-  "design_name": "NetOne Warm Support ABANET snapshot",
-  "branding": {
-    "logo_url": null,
-    "font_family": "Space Grotesk"
-  },
-  "tokens": {
-    "colors": {
-      "primary": "#2563EB",
-      "accent": "#EFF6FF"
-    }
-  },
-  "layout": {
-    "mode": "sidebar",
-    "density": "comfortable",
-    "layout_ref": {
-      "layout_key": "src_a39f36a6",
-      "version": "v001",
-      "name": "Minimal Billing Dashboard"
-    }
-  },
-  "source": {
-    "type": "manual",
-    "reference_url": null,
-    "cloned_from": null,
-    "layout_strategy": "approved"
+  "template": "peera-default",
+  "layout_overrides": {
+    "dashboard": [
+      { "field": "customer_name", "position": "top-left" },
+      { "field": "customer_name", "position": "bottom-right" }
+    ]
   }
 }
