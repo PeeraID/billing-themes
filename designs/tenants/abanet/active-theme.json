@@ -2,9 +2,17 @@
   "tenant_code": "abanet",
   "template": "peera-default",
   "layout_overrides": {
-    "dashboard": [
-      { "field": "customer_name", "position": "top-left" },
-      { "field": "customer_name", "position": "bottom-right" }
+    "home": [
+      { "field": "service_plan", "position": "top-right" },
+      { "html": "<span class=\"text-xs font-bold text-green-500 uppercase\">GRATIS</span>", "position": "top-right" }
+    ],
+    "billing": [
+      { "field": "service_plan", "position": "top-right" },
+      { "html": "<span class=\"text-xs font-bold text-green-500 uppercase\">GRATIS</span>", "position": "top-right" }
+    ],
+    "security": [
+      { "field": "service_plan", "position": "top-right" },
+      { "html": "<span class=\"text-xs font-bold text-green-500 uppercase\">GRATIS</span>", "position": "top-right" }
     ]
   }
 }
