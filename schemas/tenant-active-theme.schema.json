@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peera.id/schemas/tenant-active-theme.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tenant_code",
+    "design_name",
+    "branding",
+    "tokens",
+    "layout",
+    "source"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "design_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version_id": {
+      "type": "string"
+    },
+    "applied_at": {
+      "type": "string"
+    },
+    "branding": {
+      "type": "object",
+      "required": ["font_family"],
+      "properties": {
+        "company_name": {
+          "type": ["string", "null"]
+        },
+        "logo_url": {
+          "type": ["string", "null"]
+        },
+        "font_family": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "required": ["colors"],
+      "properties": {
+        "colors": {
+          "type": "object",
+          "required": ["primary", "accent"],
+          "properties": {
+            "primary": { "type": "string", "minLength": 1 },
+            "accent": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["sidebar", "stacked", "focus"]
+        },
+        "density": {
+          "type": "string",
+          "enum": ["comfortable", "compact", "airy", "dense"]
+        },
+        "sidebar": {
+          "type": "string"
+        },
+        "topbar": {
+          "type": "string"
+        },
+        "layout_ref": {
+          "type": ["object", "null"],
+          "required": ["layout_key", "version"],
+          "properties": {
+            "layout_key": {
+              "type": "string",
+              "pattern": "^src_[a-f0-9]{8}$"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^v[0-9]{3}$"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "custom_layout": {
+          "type": ["object", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_url": {
+          "type": ["string", "null"]
+        },
+        "cloned_from": {
+          "type": ["string", "null"]
+        },
+        "layout_strategy": {
+          "type": "string",
+          "enum": ["basic", "approved", "custom"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

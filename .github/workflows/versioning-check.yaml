@@ -1,0 +1,65 @@
+name: Versioning & Layout Key Validation
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  versioning-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Validate SHA8 hash keys in layout families
+        run: |
+          echo "Validating layout family versioning keys..."
+          for tenant_dir in ./designs/tenants/*/; do
+            if [ -d "$tenant_dir" ]; then
+              active_file="$tenant_dir/active-theme.json"
+              manifest_file="$tenant_dir/manifest.json"
+              
+              if [ -f "$active_file" ]; then
+                echo "Found active theme in: $tenant_dir"
+                
+                # Check for SHA8 hash key pattern
+                version=$(jq -r '.version' "$active_file" 2>/dev/null)
+                if [[ ! "$version" =~ ^[a-f0-9]{8}$ ]]; then
+                  echo "ERROR: Version in $tenant_dir/active-theme.json must be 8-char hex SHA8 hash"
+                  exit 1
+                fi
+                
+                # Check for mode field
+                mode=$(jq -r '.mode' "$active_file" 2>/dev/null)
+                if [ "$mode" != "random" ] && [ "$mode" != "explicit" ]; then
+                  echo "ERROR: Mode must be 'random' or 'explicit'"
+                  exit 1
+                fi
+                
+                echo "✓ Validated $tenant_dir/active-theme.json"
+              fi
+            fi
+          done
+      
+      - name: Check manifest files for layout keys
+        run: |
+          echo "Validating manifest layout keys..."
+          for manifest in ./designs/tenants/*/manifest.json; do
+            if [ -f "$manifest" ]; then
+              # Verify layout_key follows src_{sha8} pattern
+              layout_key=$(jq -r '.layout_key' "$manifest" 2>/dev/null)
+              if [[ ! "$layout_key" =~ ^src_[a-f0-9]{8}$ ]]; then
+                echo "ERROR: Layout key in $manifest must be in format 'src_{sha8}'"
+                exit 1
+              fi
+              echo "✓ Validated layout key format in $(dirname $manifest)"
+            fi
+          done

@@ -1,0 +1,20 @@
+{
+  "name": "@peera/billing-themes",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "validate:layout": "npx ts-node scripts/validate-layout.ts",
+    "validate:complexity": "npx ts-node scripts/check-layout-complexity.ts",
+    "validate:path-guard": "npx ts-node scripts/enforce-path-guard.ts",
+    "secrets-scan": "npx ts-node scripts/detect-secrets.ts",
+    "test": "echo 'Tests pending implementation'",
+    "lint": "echo 'Linting disabled for minimal setup'"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

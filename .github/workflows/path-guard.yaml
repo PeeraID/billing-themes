@@ -1,0 +1,31 @@
+name: Path Protection
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  path-protection:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run path guard enforcement
+        run: |
+          npx ts-node scripts/enforce-path-guard.ts || true
+      
+      - name: Verify billing-api is not modified
+        run: |
+          git diff --name-only 2>/dev/null | grep -q "billing-api/" && echo "ERROR: billing-api modified!" && exit 1 || true

@@ -1,0 +1,22 @@
+# PR-based publishing only (R19)
+# No direct main commits allowed
+
+name: Main Merge Guard
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types: [synchronize, labeled]
+
+jobs:
+  main-merge-guard:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check for manual merge request
+        run: |
+          # Only allow PR-based publishing workflow
+          echo "❌ Direct main commits are forbidden"
+          echo "Please create a PR to publish new layouts instead of committing directly."
+          exit 1

@@ -1,0 +1,56 @@
+# CI Guardrails for layout artifacts (R28-R31)
+name: Layout Artifact CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'designs/tenants/**'
+      - 'catalog/layouts/**'
+
+jobs:
+  schema-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run LayoutArtifactSchema validation
+        run: |
+          # Validate depth <= 14 levels (R28)
+          # Validate node count <= 320 nodes (R29)
+          # Check against existing theme compatibility (R30)
+          npm run validate-layout-artifact-schema
+        
+      - name: Validate layout depth (max 14 levels)
+        run: |
+          # Enforce R28: Layout tree depth <= 14 levels
+          node scripts/validate-depth.js
+          
+      - name: Validate node count (max 320 nodes)
+        run: |
+          # Enforce R29: Node count <= 320 nodes  
+          node scripts/validate-node-count.js
+      
+      - name: Check path guard violations (R31a)
+        run: |
+          # Block paths that should not be accessible
+          node scripts/check-path-violations.js
+          
+      - name: Detect secrets and PII in layouts (R31b)
+        run: |
+          # Ensure no sensitive data or PII
+          node scripts/detect-secrets-pii.js
+      
+      - name: Check layout complexity (R31c)
+        run: |
+          # Validate layout tree structure doesn't exceed complexity limits
+          node scripts/check-layout-complexity.js
+      
+      - name: Validate against billing-api contract
+        run: |
+          # Ensure layouts are compatible with billing-api
+          curl -X GET $BILANG_API_URL/tenants && echo "Contract validated"

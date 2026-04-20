@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peera.id/schemas/proposal-action.schema.json",
+  "type": "object",
+  "required": ["type", "proposal"],
+  "properties": {
+    "type": {
+      "const": "proposal_action"
+    },
+    "proposal": {
+      "type": "object",
+      "required": ["id", "title", "status", "intent", "visibility", "owner"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": ["planned", "preview_only", "coming_soon", "blocked", "deprecated"]
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["preview_only", "live_portal"]
+        },
+        "owner": {
+          "const": "company"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

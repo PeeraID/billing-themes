@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://billing.themes/v1/layout-version-schema.json",
+  "title": "LayoutVersion",
+  "description": "Layout version tracking with SHA8 hash key for random mode (R24)",
+  "type": "object",
+  "properties": {
+    "tenant_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "layout_tree_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}$",
+      "description": "SHA8 hash of layout.tree for version bumping (explicit mode R26)"
+    },
+    "canonical_url": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The source URL used to derive the version key"
+    },
+    "sha_key": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}$",
+      "description": "src_{sha8(canonical_url)} for random mode uniqueness (R24)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["tenant_code", "layout_tree_hash", "canonical_url", "sha_key", "timestamp"]
+}

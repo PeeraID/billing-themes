@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://billing.themes/v1/manifest-schema.json",
+  "title": "TenantManifest",
+  "description": "Layout manifest for tenant with version tracking and family keying (R25-R26)",
+  "type": "object",
+  "properties": {
+    "tenant_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "layout_key": {
+      "type": "string",
+      "pattern": "^src_[a-f0-9]{8}$",
+      "description": "Family key: src_{sha8(canonical_url)} (R24)"
+    },
+    "active_version": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}$",
+      "description": "Current active layout tree hash"
+    },
+    "previous_version": {
+      "type": "string",
+      "nullable": true,
+      "pattern": "^[a-f0-9]{8}$",
+      "description": "Previous version (for change tracking)"
+    },
+    "tree_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}$",
+      "description": "SHA8 hash of layout.tree"
+    },
+    "is_changed": {
+      "type": "boolean",
+      "description": "true if layout.tree differs by hash (R26)"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["random", "explicit"]
+    },
+    "canonical_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["tenant_code", "layout_key", "active_version", "tree_hash", "is_changed", "mode", "canonical_url", "updated_at"]
+}
