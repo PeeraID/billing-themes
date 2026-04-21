@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Peera Default",
+  "description": "Standard layout for all new tenants",
   "layout": {
     "nav": {
       "items": [
@@ -8,12 +9,26 @@
         { "id": "nav.status", "label": "Status", "url": "/status" },
         { "id": "nav.billing", "label": "Billing", "url": "/billing" },
         { "id": "nav.docs", "label": "Documents", "url": "/documents" },
-        { "id": "nav.profile", "label": "Profile", "url": "/profile" }
+        { "id": "nav.profile", "label": "Profile", "url": "/profile" },
+        { "id": "nav.security", "label": "Security", "url": "/security/change-password" },
+        { 
+          "id": "nav.signout", 
+          "label": "Sign Out", 
+          "html": "<button class='w-full mt-4 bg-red-900/20 hover:bg-red-900/40 text-red-400 p-2 rounded-lg transition-colors text-sm font-medium'>Sign Out</button>" 
+        }
       ]
     },
     "dashboard": [
       { "id": "summary", "type": "section", "title": "Overview" },
       { "id": "invoices", "type": "section", "title": "Recent Invoices" }
     ]
+  },
+  "theme": {
+    "tokens": {
+      "colors": {
+        "brand-500": "#465fff",
+        "stone-950": "#0c0c0c"
+      }
+    }
   }
 }
