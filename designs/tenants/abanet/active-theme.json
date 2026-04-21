@@ -1,16 +1,9 @@
 {
-  "name": "Peera Default",
-  "navigation": [
-    { "label": "Home", "url": "/" },
-    { "label": "Status", "url": "/status" },
-    { "label": "Billing", "url": "/billing" },
-    { "label": "Documents", "url": "/documents" },
-    { "label": "Profile", "url": "/profile" },
-    { "label": "Security", "url": "/security/change-password" }
-  ],
-  "pages": {
-    "home": {
-      "content": "<div class='title'>Dashboard</div>"
-    }
+  "tenant_code": "abanet",
+  "template": "default",
+  "layout_overrides": {
+    "dashboard": [
+      { "field": "customer_name", "position": "top-left" }
+    ]
   }
 }
