@@ -5,14 +5,18 @@
   "layout": {
     "nav": {
       "items": [
-        { "id": "nav.home", "label": "Home", "action": "nav.home" },
-        { "id": "nav.status", "label": "Status", "action": "nav.status" },
-        { "id": "nav.billing", "label": "Billing", "action": "nav.billing" },
-        { "id": "nav.profile", "label": "Profile", "action": "nav.profile" }
+        { "id": "nav.home", "label": "Home", "url": "/" },
+        { "id": "nav.status", "label": "Status", "url": "/status" },
+        { "id": "nav.billing", "label": "Billing", "url": "/billing" },
+        { "id": "nav.docs", "label": "Documents", "url": "/documents" },
+        { "id": "nav.profile", "label": "Profile", "url": "/profile" },
+        { "id": "nav.security", "label": "Security", "url": "/security/change-password" },
+        { 
+          "id": "nav.signout", 
+          "label": "Sign Out", 
+          "html": "<button onclick='window.location.href=\"/login\"' class='w-full mt-4 bg-red-900/20 hover:bg-red-900/40 text-red-400 p-2 rounded-lg transition-colors text-sm font-medium'>Sign Out</button>"
+        }
       ]
-    },
-    "signout": {
-      "script": "auth.logout"
     },
     "dashboard": [
       { "id": "summary", "type": "section", "title": "Overview" },
