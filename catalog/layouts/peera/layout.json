@@ -5,18 +5,14 @@
   "layout": {
     "nav": {
       "items": [
-        { "id": "nav.home", "label": "Home" },
-        { "id": "nav.status", "label": "Status" },
-        { "id": "nav.billing", "label": "Billing" },
-        { "id": "nav.docs", "label": "Documents" },
-        { "id": "nav.profile", "label": "Profile" },
-        { "id": "nav.security", "label": "Security" },
-        { "id": "nav.signout", "label": "Sign Out" }
+        { "id": "nav.home", "label": "Home", "action": "nav.home" },
+        { "id": "nav.status", "label": "Status", "action": "nav.status" },
+        { "id": "nav.billing", "label": "Billing", "action": "nav.billing" },
+        { "id": "nav.profile", "label": "Profile", "action": "nav.profile" }
       ]
     },
     "signout": {
-      "html": "",
-      "script": "clear auth"
+      "script": "auth.logout"
     },
     "dashboard": [
       { "id": "summary", "type": "section", "title": "Overview" },
