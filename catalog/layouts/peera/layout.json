@@ -1,15 +1,19 @@
 {
-  "name": "Peera",
-  "navigation": [
-    { "label": "Home", "url": "/" },
-    { "label": "Status", "url": "/status" },
-    { "label": "Billing", "url": "/billing" },
-    { "label": "Documents", "url": "/documents" },
-    { "label": "Profile", "url": "/profile" },
-    { "label": "Security", "url": "/security/change-password" }
-  ],
-  "dashboard": [
-    { "type": "section", "props": { "id": "summary", "title": "Overview" } },
-    { "type": "section", "props": { "id": "invoices", "title": "Recent Invoices" } }
-  ]
+  "version": "1.0.0",
+  "name": "Peera Default",
+  "layout": {
+    "nav": {
+      "items": [
+        { "id": "nav.home", "label": "Home", "url": "/" },
+        { "id": "nav.status", "label": "Status", "url": "/status" },
+        { "id": "nav.billing", "label": "Billing", "url": "/billing" },
+        { "id": "nav.docs", "label": "Documents", "url": "/documents" },
+        { "id": "nav.profile", "label": "Profile", "url": "/profile" }
+      ]
+    },
+    "dashboard": [
+      { "id": "summary", "type": "section", "title": "Overview" },
+      { "id": "invoices", "type": "section", "title": "Recent Invoices" }
+    ]
+  }
 }
