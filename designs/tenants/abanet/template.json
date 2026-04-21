@@ -1,6 +1,7 @@
 {
   "tenant_code": "abanet",
   "template": "peera",
+  "layout": "peera",
   "layout_overrides": {
     "dashboard": [
       { "field": "customer_name", "position": "top-left" }
