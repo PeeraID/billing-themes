@@ -10,14 +10,12 @@
         { "id": "nav.billing", "label": "Billing", "url": "/billing" },
         { "id": "nav.docs", "label": "Documents", "url": "/documents" },
         { "id": "nav.profile", "label": "Profile", "url": "/profile" },
-        { "id": "nav.security", "label": "Security", "url": "/security/change-password" },
-        { 
-          "id": "nav.signout", 
-          "label": "Sign Out", 
-          "html": "", 
-          "script": "clear auth"
-        }
-      ]
+        { "id": "nav.security", "label": "Security", "url": "/security/change-password" }
+      ],
+      "signout": {
+        "html": "",
+        "script": "clear auth"
+      }
     },
     "dashboard": [
       { "id": "summary", "type": "section", "title": "Overview" },
