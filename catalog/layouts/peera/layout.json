@@ -14,12 +14,8 @@
         { 
           "id": "nav.signout", 
           "label": "Sign Out", 
-          "html": "<button onclick='window.location.href=\"/login\"' class='w-full mt-4 bg-red-900/20 hover:bg-red-900/40 text-red-400 p-2 rounded-lg transition-colors text-sm font-medium'>Sign Out</button>" 
-        },
-        { 
-          "id": "nav.theme", 
-          "label": "Toggle Theme", 
-          "html": "<button onclick='window.dispatchEvent(new CustomEvent(\"toggle-theme\"))' class='w-full mt-2 bg-stone-800 hover:bg-stone-700 text-stone-300 p-2 rounded-lg transition-colors text-sm font-medium'>Toggle Theme</button>" 
+          "html": "", 
+          "script": "clear auth"
         }
       ]
     },
