@@ -1,9 +1,4 @@
 {
   "tenant_code": "abanet",
-  "template": "default",
-  "layout_overrides": {
-    "dashboard": [
-      { "field": "customer_name", "position": "top-left" }
-    ]
-  }
+  "template_layout": "default"
 }
