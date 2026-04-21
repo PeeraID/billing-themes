@@ -11,17 +11,30 @@
         { "id": "nav.docs", "label": "Documents", "url": "/documents" },
         { "id": "nav.profile", "label": "Profile", "url": "/profile" },
         { "id": "nav.security", "label": "Security", "url": "/security/change-password" },
-        { "id": "nav.signout", "label": "Sign Out", "action": "auth.logout" }
+        { 
+          "id": "nav.signout", 
+          "label": "Sign Out", 
+          "html": "<button onclick='window.dispatchEvent(new CustomEvent(\"signout\"))' class='w-full mt-4 bg-red-900/20 hover:bg-red-900/40 text-red-400 p-2 rounded-lg transition-colors text-sm font-medium'>Sign Out</button>"
+        }
       ]
     },
     "signout": {
-      "html": "<button onclick='window.dispatchEvent(new CustomEvent(\"signout\"))' class='w-full mt-4 bg-red-900/20 hover:bg-red-900/40 text-red-400 p-2 rounded-lg transition-colors text-sm font-medium'>Sign Out</button>",
       "script": "auth.logout"
     },
-    "dashboard": [
-      { "id": "summary", "type": "section", "title": "Overview" },
-      { "id": "invoices", "type": "section", "title": "Recent Invoices" }
-    ]
+    "contents": {
+      "dashboard": {
+        "title": "Dashboard",
+        "html": "<div class='p-8 bg-stone-900 border border-stone-800 rounded-xl'><h1 class='text-2xl font-bold text-white'>Dashboard</h1></div>"
+      },
+      "billing": {
+        "title": "Billing",
+        "html": "<div class='p-8 bg-stone-900 border border-stone-800 rounded-xl'><h1 class='text-2xl font-bold text-white'>Billing</h1></div>"
+      },
+      "login": {
+        "title": "Sign In",
+        "html": "<div class='flex justify-center items-center min-h-screen'><div class='w-full max-w-sm p-8 bg-stone-900 border border-stone-800 rounded-xl'><h1 class='text-xl font-bold text-white mb-4'>Sign In</h1></div></div>"
+      }
+    }
   },
   "theme": {
     "tokens": {
