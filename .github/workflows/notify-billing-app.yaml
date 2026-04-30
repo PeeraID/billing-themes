@@ -1,0 +1,19 @@
+name: Notify billing-app on layout change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'catalog/layouts/**'
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch sync-tailwind-bait to billing-app
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.BILLING_APP_DISPATCH_TOKEN }}
+          repository: PeeraID/billing-app
+          event-type: sync-tailwind-bait
+          client-payload: '{"ref": "${{ github.sha }}", "actor": "${{ github.actor }}"}'

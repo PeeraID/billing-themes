@@ -11,6 +11,7 @@
     "lint": "echo 'Linting disabled for minimal setup'"
   },
   "devDependencies": {
+    "glob": "^13.0.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
