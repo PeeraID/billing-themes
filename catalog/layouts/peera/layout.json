@@ -12,7 +12,7 @@
         {
           "id": "nav.home",
           "label": "Dashboard",
-          "url": "/"
+          "url": "/dashboard"
         },
         {
           "id": "nav.status",
