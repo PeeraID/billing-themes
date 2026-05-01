@@ -2,6 +2,7 @@
 /**
  * sync-tailwind-bait.js
  * Scan semua class Tailwind dari catalog/layouts/**\/*.json
+ * dan designs/tenants/**\/*.json (termasuk layout_overrides per tenant)
  * dan output hasilnya ke stdout sebagai JSON array of classes.
  * Dipakai oleh billing-app workflow untuk update tailwind-bait.ts.
  */
@@ -42,8 +43,11 @@ function extractClassesFromJson(obj, classes = new Set()) {
   return classes;
 }
 
-const layoutDir = join(__dirname, '..', 'catalog', 'layouts');
-const files = await glob('**/*.json', { cwd: layoutDir, absolute: true });
+const rootDir = join(__dirname, '..');
+const files = [
+  ...await glob('catalog/layouts/**/*.json', { cwd: rootDir, absolute: true }),
+  ...await glob('designs/tenants/**/*.json', { cwd: rootDir, absolute: true }),
+];
 
 const allClasses = new Set();
 
